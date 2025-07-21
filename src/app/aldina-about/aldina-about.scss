@@ -1,0 +1,13 @@
+.text-brown {
+  color: #804000; // marroncito alfajor clásico
+}
+
+a {
+  color: #804000;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+

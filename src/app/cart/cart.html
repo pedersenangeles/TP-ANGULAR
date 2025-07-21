@@ -1,0 +1,9 @@
+<h3 class="mb-3 text-chocolate">Carrito de Compras</h3>
+<ul class="list-group">
+  @for (alfajor of cartList$ | async; track alfajor.name) {
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    {{alfajor.name}}
+    <span class="badge bg-dark rounded-pill">{{alfajor.quantity}}</span>
+  </li>
+  }
+</ul>

@@ -1,0 +1,48 @@
+<h3 class="mb-3 text-chocolate">Lista de Alfajores</h3>
+<table class="table align-middle">
+  <thead class="table-light">
+    <tr>
+      <th scope="col">Imagen</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Cantidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (alfajor of alfajores; track alfajor.id) {
+    <tr [ngClass]="{'table-danger' : alfajor.clearance}">
+      <td>
+        <img
+          [src]="alfajor.image"
+          [alt]="alfajor.name"
+          class="img-thumbnail"
+          style="max-width: 120px"
+        />
+      </td>
+      <td>{{alfajor.name}}</td>
+      <td>{{alfajor.description}}</td>
+      <td>{{alfajor.price | currency}}</td>
+      <td>
+        @if (alfajor.stock == 0) {
+        <span class="badge bg-warning text-dark">SIN STOCK!</span>
+        } @else {
+        <app-input-integer
+          [(quantity)]="alfajor.quantity"
+          [max]="alfajor.stock"
+          (maxReached)="maxReached($event)"
+        ></app-input-integer>
+        <button 
+            class="btn btn-dark btn-sm ms-2"
+            (click)="addToCart(alfajor)"
+            [disabled]="alfajor.quantity <= 0"
+          >
+            Comprar
+          </button>
+
+        }
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
