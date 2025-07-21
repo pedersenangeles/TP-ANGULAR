@@ -1,4 +1,4 @@
-# Trabajo Final - Aldina: Tienda de Alfajores
+# Trabajo Final - Angular
 
 ## Temática
 Este proyecto consiste en el desarrollo de una tienda online de alfajores llamada **Aldina**.
